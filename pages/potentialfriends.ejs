@@ -1,0 +1,18 @@
+
+<%- include('../views/partials/header.ejs') %>
+</header>
+<div class='main'>
+    <img class = 'largelogo' src='/images/friendface_logo.png'/>
+    
+    <div class='manyfriendlyfaces'>
+        <% nonfriends.forEach((friend) => { %>                                  
+        <a href='http://localhost:8000/user/<%-friend.id%>'>
+            <img class = 'friend' src='<%-friend.avatarUrl%>' />
+        </a>
+        <% }); %>
+
+    </div>
+    
+</div>    
+    <%- include('../views/partials/footer.ejs') %>
+

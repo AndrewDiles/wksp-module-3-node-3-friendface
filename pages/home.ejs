@@ -1,0 +1,19 @@
+
+<%- include('../views/partials/header.ejs') %>
+</header>
+<div class='main'>
+    <img class = 'userimg' src='<%-user.avatarUrl%>'/>
+    <img class = 'smalllogo' src='/images/friendface_logo.png'/>
+    
+    <div class='friendlyfaces'>
+        <% user.friends.forEach((friendid) => { %>
+            <%let friend = users.find(friend => friend.id ===friendid);%>                                    
+        <a href='http://localhost:8000/user/<%-friend.id%>'>
+            <img class = 'friend' src='<%-friend.avatarUrl%>'/>
+        </a>
+        <% }); %>
+    </div>
+    <a class ='vpf' href=/potentialfriends>View Potential Friends</a>
+</div>    
+    <%- include('../views/partials/footer.ejs') %>
+

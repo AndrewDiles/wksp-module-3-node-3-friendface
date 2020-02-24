@@ -1,0 +1,13 @@
+
+<%- include('../views/partials/header.ejs') %>
+
+</header>
+<img class = 'largelogo' src='/images/friendface_logo.png'/>
+<div class = 'formContainer'>
+    <form method='get' action='/getname' class='signin-form'>
+        <label for='firstName'></label>
+        <input class='input' type='text' name='firstName' placeholder='<%=input%>' />
+        <button type='submit'>Submit</button>
+    </form>
+</div>
+<%- include('../views/partials/footer.ejs') %>

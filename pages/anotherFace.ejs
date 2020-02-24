@@ -1,0 +1,28 @@
+
+<%- include('../views/partials/header.ejs') %>
+</header>
+<div class='main'>
+    <img class = 'userimg' src='<%-faceviewing.avatarUrl%>'/>
+    <img class = 'smalllogo' src='/images/friendface_logo.png' style='float:left; margin: 0 24px 0 0;' />
+    
+    <div class='friendlyfaces'>
+
+        <% faceviewing.friends.forEach((friendid) => { %>
+            <%let friend = users.find(friend => friend.id ===friendid);%>                                    
+        <a href='http://localhost:8000/user/<%-friend.id%>'>
+            <img class = 'friend' src='<%-friend.avatarUrl%>' />
+        </a>
+        <% }); %>
+
+    </div>
+    <% let test = true; user.friends.forEach((friend) => {if(faceviewing.id === friend) {test = false;}}) %>
+    <% if (test && faceviewing.id != user.id) { %>
+        <form method='get' action='/getfriend' class='addfriend'>
+            <label for='id'></label>
+            <input class='friendAddInput'  type='text' name='id' value='<%-faceviewing.id%>' />
+            <button class = 'add' type='add'>Add me!</button>
+        </form>
+    <% } %>
+    <a class ='vpf' href=/potentialfriends>View Potential Friends</a>
+</div>    
+    <%- include('../views/partials/footer.ejs') %>
